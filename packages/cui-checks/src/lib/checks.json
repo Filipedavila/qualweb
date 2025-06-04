@@ -1,8 +1,21 @@
 {
   "QW_CUI_C1": {
-    "name": "Testing check",
+    "name": "Chatbot Has Voice input.",
     "code": "QW-CUI-C1",
-    "description": "This is a test.",
+    "description": "Test if chatbot has Voice input system.",
+    "metadata": {
+      "target": {
+        "element": "button"
+      },
+      "success-criteria": [
+       
+      ],
+      "related": [],
+      "url": "",
+      "type": ["CUIRule", "TestCase"],
+      "a11yReq": [""]
+    }
+  },
     "metadata": {
       "target": {
         "element": "title"
