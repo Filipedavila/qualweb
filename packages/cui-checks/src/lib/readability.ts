@@ -1,4 +1,4 @@
-import syllablePT from 'syllable-pt';
+import syllablePT from '@syllabe-pt/main';
 import { hyphenate } from 'hyphen/en';
 
 /* Verify what is the environment cui-checks is running on */

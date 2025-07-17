@@ -10,8 +10,12 @@
     "noFallthroughCasesInSwitch": true /* Report errors for fallthrough cases in switch statement. */,
 
     "types": ["node"] /* Type declaration files to be included in compilation. */,
+    "paths": {
+      "@syllabe-pt/*": ["vendors/syllable-pt/*"]  
+    }
   },
   "include": [
     "src",
+    "global.d.ts"
   ],
 }

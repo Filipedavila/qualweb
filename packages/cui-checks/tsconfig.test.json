@@ -4,6 +4,10 @@
     "target": "ES6",
     "lib": ["ESNext", "DOM"],
     "types": ["mocha", "node"],
+    "baseUrl": ".",  
+    "paths": {
+      "@syllabe-pt/*": ["vendors/syllable-pt/*"],
+    }
   },
   "include": [
     "src/**/*.ts",

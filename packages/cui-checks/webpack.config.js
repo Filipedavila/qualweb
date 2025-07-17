@@ -11,14 +11,24 @@ module.exports = {
       type: 'this'
     }
   },
-    resolve: {
-      alias: {
-     "@microsoft/recognizers-text-number-with-unit": path.resolve(
+
+  resolve: {
+    alias: {
+      "@microsoft/recognizers-text-number-with-unit": path.resolve(
         __dirname,
         "../../node_modules/@microsoft/recognizers-text-number-with-unit/dist/recognizers-text-number-with-unit.es5.js"
       ),
+      '@syllabe-pt': path.resolve(__dirname, 'vendors/syllable-pt')
     },
+    fallback: {
+      mainFields: ['browser', 'module', 'main'],
+      "fs": false,
+      "child_process": false,
+      "path": false,
+      "os": false,
+    }
   },
+
   optimization: {
     minimize: true,
     usedExports: true,
