@@ -54,12 +54,40 @@ function isNotComplexHeuristicPT(word: string): boolean {
   }
   return false;
 }
+let commonWordsSet: Set<string> | null = null;
+
+export async function countComplexWordsPT(phrases: string[]): Promise<number> {
+  // Cria o Set apenas se ainda não existir
+  if (!commonWordsSet) {
+    const commonWordsText = await getCommonWords();
+    commonWordsSet = new Set(
+      commonWordsText
+        .split(/\r?\n/)
+        .map(word => word.toLowerCase().trim())
+    );
+  }
+
+  let complexWords = 0;
+
+  for (const phrase of phrases) {
+    const words = extractWords(phrase);
+    for (const word of words) {
+      if (isNotComplexHeuristicPT(word)) continue;
+      if (commonWordsSet.has(word.toLowerCase())) {
+        complexWords++;
+      }
+    }
+  }
+
+  return complexWords;
+}
+/*
 
 export async function countComplexWordsPT(phrases: string[]): Promise<number> {
   const commonWords = await getCommonWords();
   const commonWordsArray = commonWords.split('\n');
   let complexWords = 0;
-
+ /// TODO: Optimize Algorithm, to complex O(n^3), use regex only 
   for (let phrase of phrases) {
     let words = extractWords(phrase);
     for (let i = 0; i < words.length; i++) {
@@ -82,8 +110,7 @@ export async function countComplexWordsPT(phrases: string[]): Promise<number> {
   }
 
   return complexWords;
-}
-
+}*/
 export function countLetters(str: string): number {
   return [...str].filter((char) => /\p{L}/u.test(char)).length;
 }
